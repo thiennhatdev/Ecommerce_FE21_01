@@ -1,0 +1,46 @@
+* {
+  font-family: times new roman; }
+
+.container {
+  max-width: 834px; }
+
+body {
+  position: absolute;
+  background-image: url('./../images/Drink/bg_404.png');
+  background-cover: cover;
+  background-repeat: no-repeat; 
+  overflow: hidden;
+}
+
+ul {
+  display: inline; }
+  ul li {
+    display: inline;
+    padding-right: 33px; }
+    ul li a {
+      color: #000000;
+      font-family: Open Sans; }
+      ul li a i {
+        padding-left: 2px; }
+
+.redirect_404 {
+  transform: translate(49%, 3094%); }
+  .redirect_404 a {
+    padding-right: 13px;
+    color: #212121; }
+    .redirect_404 a:hover {
+      text-decoration: underline; }
+
+.box_search {
+  width: 218px;
+  transform: translate(382%, 1585%);
+  border: 1px solid white;
+ }
+  .box_search i {
+    margin-left: 8px; }
+  .box_search input {
+    height: 30px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0); }
+
+/*# sourceMappingURL=404.css.map */
