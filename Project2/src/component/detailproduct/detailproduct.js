@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { actFetchProduct } from './../../action/action';
+import { FacebookProvider, Like, Comments, ShareButton } from 'react-facebook';
 
 class detailproduct extends React.Component {
 
@@ -14,9 +15,11 @@ class detailproduct extends React.Component {
         var name = match.params.name;
         var item = null;
         var itemProduct = null;
+        var url = null;
         switch (category) {
             case 'hotProduct':
                 item = product.hotProduct;
+                url = 'hotProduct';
                 for (let i = 0; i < item.length; i++) {
                     if (item[i].bigproduct.name === name) {
                         itemProduct = item[i].bigproduct;
@@ -30,6 +33,7 @@ class detailproduct extends React.Component {
                 break;
             case 'productMore':
                 item = product.productMore;
+                url = 'productMore';
                 for (let i = 0; i < item.length; i++) {
                     if (item[i].name === name) {
                         itemProduct = item[i];
@@ -38,6 +42,7 @@ class detailproduct extends React.Component {
                 }
             case 'promotion':
                 item = product.promotion;
+                url = 'promotion';
                 for (let i = 0; i < item.length; i++) {
                     if (item[i].name === name) {
                         itemProduct = item[i];
@@ -46,13 +51,14 @@ class detailproduct extends React.Component {
                 }
             case 'newproduct':
                 item = product.promotion;
+                url = 'newproduct';
                 for (let i = 0; i < item.length; i++) {
                     if (item[i].name === name) {
                         itemProduct = item[i];
                         break;
                     }
                 }
-                break;   
+                break;
         }
 
 
@@ -78,10 +84,14 @@ class detailproduct extends React.Component {
                                 <figure><img src={require('./../../assets/images/Green Shop/search.png')} alt="search" /></figure>
                                 <figure><img src={require('./../../assets/images/Green Shop/heart.png')} alt="heart" /></figure>
                             </div>
-                            <div className="social-product"><img src={require('./../../assets/images/Green Shop/like.png')} alt="like" />
-                                <div className="number-img d-inline-block">0</div><img src={require('./../../assets/images/Green Shop/twitter1.png')} alt="twitter1" /><img src={require('./../../assets/images/Green Shop/google.png')} alt="google" />
-                                <div className="number-img d-inline-block">0</div><img src={require('./../../assets/images/Green Shop/share.png')} alt="share" />
-                            </div>
+
+                            <FacebookProvider appId="2277657042277427">
+                                <ShareButton href={`https://localhost:3000/product/${url}/${itemProduct !== null ? itemProduct.name : ''}`} >
+                                    Share
+                                </ShareButton>
+                            </FacebookProvider>
+                            <div class="fb-share-button" data-href={`https://localhost:3000/product/${url}/${itemProduct !== null ? itemProduct.name : ''}`} data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
+
                         </div>
                     </div>
                     <div className="detail-info2">
@@ -117,12 +127,18 @@ class detailproduct extends React.Component {
                             </div>
                         </div>
                     </div>
+                    <div className="fb-comments" data-href={`https://localhost:3000/product/${url}/${itemProduct !== null ? itemProduct.name : ''}`} data-width="700" data-numposts="5"></div><div>
+                    </div>
+                    <FacebookProvider appId="2277657042277427">
+                        <Comments href={`https://localhost:3000/product/${url}/${itemProduct !== null ? itemProduct.name : ''}`} />
+                    </FacebookProvider>
                     <div className="title d-flex justify-content-between align-items-center"><span className="text-capitalize">Sản phẩm cùng loại</span>
                         <div className="arrow d-flex">
                             <div className="arrow-left"></div>
                             <div className="arrow-right"></div>
                         </div>
                     </div>
+
                     <div className="product--relate">
                         <div className="product position-relative">
                             <figure><img src={require('./../../assets/images/Green Shop/cota.png')} alt="hoa" /></figure>
