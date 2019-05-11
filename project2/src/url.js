@@ -19,6 +19,7 @@ import ListCategories from './page/admin/listcategories/listcategories';
 import ListOrder from './page/admin/listorder/listorder';
 import ListProduct from './page/admin/listproduct/listproduct';
 import ListRequest from './page/admin/listrequest/listrequest';
+import Profile from './page/profile/Profile';
 
 const url = [
     {
@@ -87,6 +88,11 @@ const url = [
         main : ({location})=><Order location={location} />
     },
     {
+        path :'/profile',
+        exact: false,
+        main :({location})=><Profile location={location} />
+    },
+    {
         path :'/homeAdmin',
         exact: false,
         main : HomeAdmin,
@@ -120,7 +126,6 @@ const url = [
         path :'',
         exact: false,
         main : Page404,
-    },
+    }
 ]
-
 export default url;

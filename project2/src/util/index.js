@@ -7,7 +7,7 @@ export default function callMockAPI(method,endpoint,body){
             'Accept'       : 'application/json'
         },
         method : method ,
-        url    : `http://5ccfeb115b71f40014dc10cd.mockapi.io/api/${endpoint}`,
+        url    : `http://5ccfeb115b71f40014dc10cd.mockapi.io/${endpoint}`,
         body   : body
     })
 }
