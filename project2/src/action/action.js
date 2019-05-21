@@ -186,18 +186,21 @@ export const actRepairProductAdmin = product => dispatch => {
         })
     })
 }
-
-export const actSendRequest = request => dispatch => {
-    return callMockApi('POST', 'request', request).then(res => {
-        dispatch({
-            type: actionTypes.ACT_SEND_REQUEST,
-            request
-        })
-    }).catch(error => {
-        dispatch({
-            type : actionTypes.ERR_ACT_SEND_REQUEST,
-            error
-        })
+export const actSendRequest = (request) => {
+    return ( (dispatch) => {
+        return (
+            axios.post('http://5ccfeb115b71f40014dc10cd.mockapi.io/request', request).then(res => {
+                 dispatch({
+                    type : actionTypes.ACT_SEND_REQUEST,
+                    request
+                })
+            }).catch((err) => {
+                dispatch({
+                    type : actionTypes.ERR_ACT_SEND_REQUEST,
+                    err
+                })
+            })
+        )
     })
 }
 

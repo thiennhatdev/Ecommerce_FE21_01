@@ -20,9 +20,9 @@ class index extends React.Component {
         return (
             <Fragment>
                 <Header />
-                <main>
+                <main style={style}>
                     <Slide />
-                    <section>
+                    <section >
                         <Hotproduct hotProduct={this.props.hotProduct} />
                         <Buymore productMore={this.props.productMore} promotion={this.props.promotion} />
                         <Newproduct newproduct={this.props.newproduct} />
@@ -34,7 +34,9 @@ class index extends React.Component {
         );
     }
 }
-
+const style = {
+    padding: 0 
+}
 const mapStateToProps = state=>{
     
     return{

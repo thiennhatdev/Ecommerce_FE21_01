@@ -27,7 +27,7 @@ export default function index() {
                             <img src={require('./../../assets/images/Admin/avatar.jpg')} alt="avatar" />
                         </div>
                         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
-                            <h5 className="pd-top">Hà Tuấn Kiệt</h5>
+                            <h5 className="pd-top">Võ Hoàng Thiên Nhất</h5>
                             <h5>Admin <i className="fas fa-user-shield"></i></h5>
                             <div className="logout">
                                 <h4><i className="fas fa-sign-out-alt"></i>Signout</h4>
